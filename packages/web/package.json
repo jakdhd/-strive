@@ -1,5 +1,5 @@
 {
-  "name": "@strive/web",
+  "name": "strive-web",
   "version": "1.0.0",
   "private": true,
   "scripts": {
