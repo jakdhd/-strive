@@ -153,7 +153,7 @@ export default function AdminCoursesPage() {
                 <input type="file" accept="image/*" onChange={handleImageUpload} className="w-full border rounded-lg p-3 outline-none" />
                 {uploading && <p className="text-sm text-gray-500 mt-1">جاري الرفع...</p>}
                 {edit.imageUrl && (
-                  <img src={`http://localhost:4000${edit.imageUrl}`} alt="preview" className="mt-2 h-32 rounded object-cover" />
+                  <img src={`${edit.imageUrl}`} alt="preview" className="mt-2 h-32 rounded object-cover" />
                 )}
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function AdminCoursesPage() {
               <tr key={c.id}>
                 <td className="p-2">
                   {c.imageUrl ? (
-                    <img src={`http://localhost:4000${c.imageUrl}`} alt="" className="w-12 h-12 rounded object-cover" />
+                    <img src={`${c.imageUrl}`} alt="" className="w-12 h-12 rounded object-cover" />
                   ) : (
                     <div className="w-12 h-12 bg-gray-200 rounded flex items-center justify-center text-sm text-gray-400">لا</div>
                   )}

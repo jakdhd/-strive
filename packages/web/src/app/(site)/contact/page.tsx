@@ -22,79 +22,85 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold mb-4">تواصل معنا</h1>
-      <p className="text-gray-600 mb-8">
-        تواصل معنا عبر الواتساب أو تليجرام أو املأ النموذج وسنرد عليك فوراً
-      </p>
+    <div className="pt-28 pb-16 bg-gradient-to-b from-secondary to-white min-h-screen">
+      <div className="max-w-3xl mx-auto px-6">
+        <h1 className="text-5xl font-bold mb-4 text-white">تواصل معنا</h1>
+        <p className="text-white/60 mb-10 text-lg">
+          تواصل معنا عبر تليجرام أو املأ النموذج وسنرد عليك فوراً
+        </p>
 
-      <div className="flex gap-4 mb-10">
-        <a
-          href="https://t.me/SSSSSTVE"
-          target="_blank"
-          className="flex-1 bg-[#0088cc] hover:bg-[#0077b5] text-white text-center py-4 rounded-xl font-semibold transition"
-        >
-          💬 راسلنا على تليجرام
-        </a>
-        <a
-          href="https://t.me/Strive108"
-          target="_blank"
-          className="flex-1 bg-[#0088cc] hover:bg-[#0077b5] text-white text-center py-4 rounded-xl font-semibold transition"
-        >
-          📢 القناة
-        </a>
+        <div className="flex gap-4 mb-10">
+          <a
+            href="https://t.me/SSSSSTVE"
+            target="_blank"
+            className="flex-1 bg-gradient-to-l from-[#0088cc] to-[#0077b5] hover:from-[#0077b5] hover:to-[#006699] text-white text-center py-5 rounded-2xl font-semibold transition hover:shadow-lg shadow-md"
+          >
+            💬 راسلنا على تليجرام
+          </a>
+          <a
+            href="https://t.me/Strive108"
+            target="_blank"
+            className="flex-1 bg-secondary hover:bg-surface text-white text-center py-5 rounded-2xl font-semibold transition border border-white/10 hover:border-primary/30 shadow-md"
+          >
+            📢 قناة التليجرام
+          </a>
+        </div>
+
+        {done && (
+          <div className="bg-gradient-to-l from-green-50 to-emerald-50 text-green-700 p-5 rounded-2xl mb-6 border border-green-200 text-center font-medium">
+            تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="card p-8 space-y-5">
+          <div>
+            <label className="block text-sm font-medium mb-2">الاسم</label>
+            <input
+              required
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="input-field"
+              placeholder="اسمك الكامل"
+            />
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            <div>
+              <label className="block text-sm font-medium mb-2">البريد الإلكتروني</label>
+              <input
+                type="email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="input-field"
+                placeholder="example@email.com"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">رقم الجوال</label>
+              <input
+                type="tel"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="input-field"
+                placeholder="+964 xxx xxxx"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">الرسالة</label>
+            <textarea
+              required
+              rows={4}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="input-field"
+              placeholder="اكتب رسالتك هنا..."
+            />
+          </div>
+          <button className="btn-primary w-full text-center text-lg">
+            إرسال الرسالة
+          </button>
+        </form>
       </div>
-
-      {done && (
-        <div className="bg-green-50 text-green-700 p-4 rounded-lg mb-6">
-          تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-8 space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">الاسم</label>
-          <input
-            required
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-          />
-        </div>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">البريد الإلكتروني</label>
-            <input
-              type="email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">رقم الجوال</label>
-            <input
-              type="tel"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-            />
-          </div>
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">الرسالة</label>
-          <textarea
-            required
-            rows={4}
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-          />
-        </div>
-        <button className="bg-primary hover:bg-primary-dark text-white w-full py-3 rounded-lg font-semibold transition">
-          إرسال
-        </button>
-      </form>
     </div>
   );
 }

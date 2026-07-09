@@ -99,7 +99,7 @@ export default function AdminSettingsPage() {
                 <label className="block text-sm font-medium mb-1">شعار الموقع</label>
                 <input type="file" accept="image/*" onChange={handleLogoUpload} className="w-full border rounded-lg p-3 outline-none" />
                 {settings.logo_url && (
-                  <img src={`http://localhost:4000${settings.logo_url}`} alt="logo" className="mt-2 h-16 rounded" />
+                  <img src={`${settings.logo_url}`} alt="logo" className="mt-2 h-16 rounded" />
                 )}
               </div>
               <div>
